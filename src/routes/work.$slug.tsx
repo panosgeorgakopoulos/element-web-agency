@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { PROJECTS } from "@/data/site";
+import { PROJECTS, type Project } from "@/data/site";
 import { Magnetic } from "@/components/nocturne/Magnetic";
 
 export const Route = createFileRoute("/work/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): Project => {
     const project = PROJECTS.find((p) => p.slug === params.slug);
     if (!project) throw notFound();
     return project;
