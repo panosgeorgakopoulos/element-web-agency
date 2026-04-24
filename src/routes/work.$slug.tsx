@@ -33,7 +33,7 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 function ProjectPage() {
-  const p = Route.useLoaderData();
+  const p = Route.useLoaderData() as Project;
   const all = PROJECTS;
   const idx = all.findIndex((x) => x.slug === p.slug);
   const next = all[(idx + 1) % all.length];
