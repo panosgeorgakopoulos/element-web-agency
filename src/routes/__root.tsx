@@ -1,24 +1,29 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
 import appCss from "../styles.css?url";
+import { SmoothScroll } from "@/components/nocturne/SmoothScroll";
+import { CustomCursor } from "@/components/nocturne/CustomCursor";
+import { Nav } from "@/components/nocturne/Nav";
+import { Footer } from "@/components/nocturne/Footer";
+import { PageTransition } from "@/components/nocturne/PageTransition";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="grid min-h-screen place-items-center bg-background px-6 text-center">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">404 — Off-grid</p>
+        <h1 className="mt-6 font-display text-7xl font-semibold tracking-tight text-silver">
+          Lost in the void.
+        </h1>
+        <p className="mx-auto mt-4 max-w-md text-muted-foreground">
+          The page you're looking for has drifted somewhere between coordinates.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          data-cursor="magnetic"
+          className="mt-10 inline-flex items-center gap-3 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 font-mono text-xs uppercase tracking-[0.22em] text-primary hover:bg-primary/20"
+        >
+          ↺ Return Home
+        </Link>
       </div>
     </div>
   );
@@ -29,21 +34,23 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
+      { title: "NOCTURNE — Independent Design Studio" },
       {
-        rel: "stylesheet",
-        href: appCss,
+        name: "description",
+        content:
+          "NOCTURNE is an independent design studio crafting realtime, sculptural experiences for brands that refuse to look like everyone else.",
       },
+      { name: "author", content: "NOCTURNE" },
+      { name: "theme-color", content: "#0B0C10" },
+      { property: "og:title", content: "NOCTURNE — Independent Design Studio" },
+      {
+        property: "og:description",
+        content: "Realtime, sculptural design and engineering for ambitious brands.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -52,11 +59,11 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="grain bg-background text-foreground antialiased">
         {children}
         <Scripts />
       </body>
@@ -65,5 +72,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <>
+      <SmoothScroll />
+      <CustomCursor />
+      <Nav />
+      <main className="relative">
+        <Outlet />
+      </main>
+      <Footer />
+      <PageTransition />
+    </>
+  );
 }
