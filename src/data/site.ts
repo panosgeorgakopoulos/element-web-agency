@@ -82,7 +82,7 @@ export const STUDIOS = [
 export const SOCIALS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/panagiotis-sergios-georgakopoulos/" },
   { label: "GitHub", href: "https://github.com/panosgeorgakopoulos" },
-  { label: "X / Twitter", href: "https://x.com" },
+  { label: "X / Twitter", href: "https://x.com/panosgeorgakop7" },
 ];
 
 export const AGENCY = {

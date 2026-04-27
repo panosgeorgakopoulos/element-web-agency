@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PROJECTS, type Project } from "@/data/site";
-import { Magnetic } from "@/components/nocturne/Magnetic";
+import { Magnetic } from "@/components/elementweb/Magnetic";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }): Project => {
@@ -11,13 +11,13 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — Element Web` },
-          { name: "description", content: loaderData.summary },
-          { property: "og:title", content: `${loaderData.title} — Element Web` },
-          { property: "og:description", content: loaderData.summary },
-          { property: "og:image", content: loaderData.cover },
-          { name: "twitter:image", content: loaderData.cover },
-        ]
+        { title: `${loaderData.title} — Element Web` },
+        { name: "description", content: loaderData.summary },
+        { property: "og:title", content: `${loaderData.title} — Element Web` },
+        { property: "og:description", content: loaderData.summary },
+        { property: "og:image", content: loaderData.cover },
+        { name: "twitter:image", content: loaderData.cover },
+      ]
       : [],
   }),
   notFoundComponent: () => (
@@ -100,9 +100,8 @@ function ProjectPage() {
         {p.gallery.map((g, i) => (
           <div
             key={g}
-            className={`relative overflow-hidden rounded-xl border border-border ${
-              i % 2 === 0 ? "aspect-[16/9]" : "aspect-[21/10]"
-            }`}
+            className={`relative overflow-hidden rounded-xl border border-border ${i % 2 === 0 ? "aspect-[16/9]" : "aspect-[21/10]"
+              }`}
           >
             <img src={g} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           </div>

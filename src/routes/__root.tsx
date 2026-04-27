@@ -1,10 +1,10 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
-import { SmoothScroll } from "@/components/nocturne/SmoothScroll";
-import { CustomCursor } from "@/components/nocturne/CustomCursor";
-import { Nav } from "@/components/nocturne/Nav";
-import { Footer } from "@/components/nocturne/Footer";
-import { PageTransition } from "@/components/nocturne/PageTransition";
+import { SmoothScroll } from "@/components/elementweb/SmoothScroll";
+import { CustomCursor } from "@/components/elementweb/CustomCursor";
+import { Nav } from "@/components/elementweb/Nav";
+import { Footer } from "@/components/elementweb/Footer";
+import { PageTransition } from "@/components/elementweb/PageTransition";
 
 function NotFoundComponent() {
   return (

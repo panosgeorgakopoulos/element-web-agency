@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AGENCY, STUDIOS } from "@/data/site";
 import { useLocalTime } from "@/hooks/useLocalTime";
-import { Magnetic } from "@/components/nocturne/Magnetic";
+import { Magnetic } from "@/components/elementweb/Magnetic";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

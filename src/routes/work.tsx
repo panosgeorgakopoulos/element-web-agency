@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PROJECTS } from "@/data/site";
-import { WorkList } from "@/components/nocturne/WorkList";
-import { Magnetic } from "@/components/nocturne/Magnetic";
+import { WorkList } from "@/components/elementweb/WorkList";
+import { Magnetic } from "@/components/elementweb/Magnetic";
 
 export const Route = createFileRoute("/work")({
   head: () => ({

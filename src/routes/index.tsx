@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { RoutingGrid } from "@/components/webgl/RoutingGrid";
-import { Magnetic } from "@/components/nocturne/Magnetic";
+import { Magnetic } from "@/components/elementweb/Magnetic";
 import { useLocalTime } from "@/hooks/useLocalTime";
 import { AGENCY, PROJECTS, STUDIOS } from "@/data/site";
-import { WorkList } from "@/components/nocturne/WorkList";
+import { WorkList } from "@/components/elementweb/WorkList";
 
 export const Route = createFileRoute("/")({
   head: () => ({

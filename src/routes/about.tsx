@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { AvailabilityBadge } from "@/components/nocturne/AvailabilityBadge";
-import { Magnetic } from "@/components/nocturne/Magnetic";
+import { AvailabilityBadge } from "@/components/elementweb/AvailabilityBadge";
+import { Magnetic } from "@/components/elementweb/Magnetic";
 import { AGENCY } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
