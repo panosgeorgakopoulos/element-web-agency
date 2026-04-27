@@ -11,9 +11,9 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — NOCTURNE` },
+          { title: `${loaderData.title} — Element Web` },
           { name: "description", content: loaderData.summary },
-          { property: "og:title", content: `${loaderData.title} — NOCTURNE` },
+          { property: "og:title", content: `${loaderData.title} — Element Web` },
           { property: "og:description", content: loaderData.summary },
           { property: "og:image", content: loaderData.cover },
           { name: "twitter:image", content: loaderData.cover },

@@ -189,8 +189,60 @@
   }
   .pulse-glow { animation: pulseGlow 3.2s ease-in-out infinite; }
 
+  /* ── Cinematic Case Study ── */
+  .metrics-glass {
+    background: oklch(0.12 0.01 250 / 0.6);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      0 8px 32px oklch(0 0 0 / 0.4),
+      0 0 0 1px oklch(1 0 0 / 0.04) inset,
+      0 1px 0 oklch(1 0 0 / 0.06) inset;
+  }
+
+  .metrics-cell {
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cinematic-title {
+    text-shadow: 0 4px 60px oklch(0 0 0 / 0.5);
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; width: 2rem; }
+    50% { opacity: 1; width: 3rem; }
+  }
+  .scroll-indicator-line {
+    animation: scrollPulse 2.4s ease-in-out infinite;
+  }
+
+  /* ── Availability Badge ── */
+  @keyframes ping {
+    75%, 100% { transform: scale(2); opacity: 0; }
+  }
+  .ping-dot {
+    animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .availability-badge {
+    box-shadow: 0 0 0 1px oklch(0.72 0.17 152 / 0.15),
+                0 0 20px oklch(0.72 0.17 152 / 0.08);
+    transition: box-shadow 0.4s ease;
+  }
+  .availability-badge:hover {
+    box-shadow: 0 0 0 1px oklch(0.72 0.17 152 / 0.3),
+                0 0 32px oklch(0.72 0.17 152 / 0.15);
+  }
+
+  /* ── Manifesto lines ── */
+  .manifesto-line {
+    will-change: transform;
+    transition: transform 0.25s linear;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .marquee, .pulse-glow { animation: none !important; }
+    .ping-dot { animation: none !important; }
+    .marquee, .pulse-glow, .scroll-indicator-line { animation: none !important; }
     .reveal-line > span { transform: none !important; }
   }
 }

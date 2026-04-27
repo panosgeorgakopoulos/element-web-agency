@@ -1,18 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { PROJECTS } from "@/data/site";
 import { WorkList } from "@/components/nocturne/WorkList";
+import { Magnetic } from "@/components/nocturne/Magnetic";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — NOCTURNE" },
+      { title: "Work — Element Web" },
       {
         name: "description",
-        content: "Selected case studies in realtime 3D, e-commerce, brand systems, and product design.",
+        content: "Featured case study — high-performance web engineering by Panos Georgakopoulos.",
       },
-      { property: "og:title", content: "Work — NOCTURNE" },
+      { property: "og:title", content: "Work — Element Web" },
       {
         property: "og:description",
-        content: "Selected case studies from NOCTURNE — realtime 3D, e-commerce, and brand systems.",
+        content: "Featured case study from Element Web — high-performance web apps and booking systems.",
       },
     ],
   }),
@@ -20,21 +22,50 @@ export const Route = createFileRoute("/work")({
 });
 
 function WorkPage() {
+  const project = PROJECTS[0];
+
   return (
-    <div className="pb-24 pt-32 md:pt-44">
-      <div className="mx-auto max-w-[1600px] px-5 pb-16 md:px-10 md:pb-24">
+    <div className="pb-24 pt-28 md:pt-36">
+      {/* Section intro */}
+      <div className="mx-auto max-w-[1600px] px-5 pb-16 md:px-10 md:pb-20">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-          Index — All Work
+          Featured Case Study
         </p>
-        <h1 className="mt-6 font-display text-[14vw] font-semibold leading-[0.9] tracking-[-0.04em] md:text-[8vw]">
-          A small body of <span className="text-silver">large</span> work.
+        <h1 className="mt-6 font-display text-[12vw] font-semibold leading-[0.9] tracking-[-0.04em] md:text-[7vw]">
+          Precision-engineered <span className="text-silver">for impact.</span>
         </h1>
         <p className="mt-8 max-w-xl text-muted-foreground">
-          We take on a handful of partners each year. Below: the ones we can talk about.
+          Every project receives undivided focus. Below is the work that defines the standard.
         </p>
       </div>
 
+      {/* Cinematic case study */}
       <WorkList />
+
+      {/* CTA after the case study */}
+      {project && (
+        <div className="mx-auto mt-24 max-w-[1600px] px-5 md:mt-32 md:px-10">
+          <div className="flex flex-col items-start gap-8 border-t border-border pt-12 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+                Interested?
+              </p>
+              <h3 className="mt-4 font-display text-3xl font-semibold leading-[1.05] tracking-tight md:text-5xl">
+                Let's build something <span className="text-silver">remarkable.</span>
+              </h3>
+            </div>
+            <Magnetic strength={0.4}>
+              <Link
+                to="/contact"
+                data-cursor-label="Write"
+                className="inline-flex items-center gap-4 rounded-full border border-primary/60 bg-primary/10 px-7 py-4 font-mono text-xs uppercase tracking-[0.28em] text-primary hover:bg-primary/20"
+              >
+                Start a Project →
+              </Link>
+            </Magnetic>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -15,7 +15,7 @@ const LINKS = [
 export function Nav() {
   const [open, setOpen] = useState(false);
   const loc = useLocation();
-  const time = useLocalTime("Europe/Paris");
+  const time = useLocalTime("Europe/Athens");
 
   useEffect(() => {
     setOpen(false);
@@ -58,7 +58,7 @@ export function Nav() {
 
           <div className="flex items-center gap-4">
             <span className="hidden font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground md:inline">
-              PAR · {time}
+              ATH · {time}
             </span>
             <Magnetic strength={0.3}>
               <button

@@ -12,7 +12,7 @@ export function Footer() {
             (Let's Talk)
           </span>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Available · Q3 2026
+            Available · 2026
           </span>
         </div>
 

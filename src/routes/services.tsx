@@ -4,13 +4,13 @@ import { SERVICES } from "@/data/site";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — NOCTURNE" },
+      { title: "Services — Element Web" },
       {
         name: "description",
         content:
           "Brand systems, UI/UX, 3D & WebGL, e-commerce, motion, and engineering — delivered by a small team.",
       },
-      { property: "og:title", content: "Services — NOCTURNE" },
+      { property: "og:title", content: "Services — Element Web" },
       {
         property: "og:description",
         content: "What we make: brand systems, UI/UX, 3D & WebGL, e-commerce, motion, engineering.",
@@ -31,7 +31,7 @@ function ServicesPage() {
           Six things we do <span className="text-silver">very</span> well.
         </h1>
         <p className="mt-8 max-w-xl text-muted-foreground">
-          We're a small team of designers and engineers. We don't outsource — every pixel and every shader is shipped by the people who designed it.
+          We don't outsource — every pixel and every shader is shipped by the people who designed it.
         </p>
       </header>
 

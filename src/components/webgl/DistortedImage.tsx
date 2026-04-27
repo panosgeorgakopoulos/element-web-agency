@@ -14,7 +14,7 @@ export function DistortedImage({
   src: string;
   active: boolean;
   className?: string;
-  /** normalized [0..1] mouse coords inside the canvas. */
+  /** normalized [0..1] mouse coordinates inside the canvas. */
   mouse: { x: number; y: number };
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

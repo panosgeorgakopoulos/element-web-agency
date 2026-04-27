@@ -7,15 +7,15 @@ import { Magnetic } from "@/components/nocturne/Magnetic";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — NOCTURNE" },
+      { title: "Contact — Element Web" },
       {
         name: "description",
-        content: "Begin a project with NOCTURNE. We respond to every brief within 48 hours.",
+        content: "Begin a project with Element Web. We respond to every brief within 48 hours.",
       },
-      { property: "og:title", content: "Contact — NOCTURNE" },
+      { property: "og:title", content: "Contact — Element Web" },
       {
         property: "og:description",
-        content: "Begin a project with NOCTURNE. We respond within 48 hours.",
+        content: "Begin a project with Element Web. We respond within 48 hours.",
       },
     ],
   }),
@@ -52,7 +52,7 @@ function ContactPage() {
             <SelectField
               label="Budget"
               name="budget"
-              options={["< $25k", "$25k – $75k", "$75k – $200k", "$200k+"]}
+              options={["< $500", "$500 – $1000", "$1000 – $1500", "$1500 – $2000", "$2000+"]}
             />
             <Field label="Project" name="project" type="text" placeholder="One sentence is enough" />
             <div>
@@ -104,15 +104,11 @@ function ContactPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Studios</p>
             <div className="mt-4 space-y-3">
               {STUDIOS.map((s) => (
-                <StudioRow key={s.city} city={s.city} tz={s.tz} coords={s.coords} />
+                <StudioRow key={s.city} city={s.city} tz={s.tz} />
               ))}
             </div>
           </div>
 
-          <div className="mt-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Press</p>
-            <p className="mt-3 text-muted-foreground">press@nocturne.dev</p>
-          </div>
         </aside>
       </section>
     </div>
@@ -177,15 +173,12 @@ function SelectField({
   );
 }
 
-function StudioRow({ city, tz, coords }: { city: string; tz: string; coords: string }) {
+function StudioRow({ city, tz }: { city: string; tz: string; }) {
   const t = useLocalTime(tz);
   return (
     <div className="flex items-baseline justify-between gap-4 border-t border-border pt-3">
       <div>
         <div className="text-foreground">{city}</div>
-        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          {coords}
-        </div>
       </div>
       <span className="font-mono text-sm text-primary">{t}</span>
     </div>

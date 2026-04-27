@@ -1,24 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { FluidHero } from "@/components/webgl/FluidHero";
+import { RoutingGrid } from "@/components/webgl/RoutingGrid";
 import { Magnetic } from "@/components/nocturne/Magnetic";
 import { useLocalTime } from "@/hooks/useLocalTime";
-import { AGENCY, PROJECTS } from "@/data/site";
+import { AGENCY, PROJECTS, STUDIOS } from "@/data/site";
 import { WorkList } from "@/components/nocturne/WorkList";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NOCTURNE — We build the future of the web." },
+      { title: `${AGENCY.name} — ${AGENCY.tagline}` },
       {
         name: "description",
-        content:
-          "NOCTURNE designs and engineers realtime, sculptural digital experiences for ambitious brands.",
+        content: AGENCY.description,
       },
-      { property: "og:title", content: "NOCTURNE — We build the future of the web." },
+      { property: "og:title", content: `${AGENCY.name} — ${AGENCY.tagline}` },
       {
         property: "og:description",
-        content: "Realtime, sculptural design and engineering. Independent studio, three cities.",
+        content: AGENCY.description,
       },
     ],
   }),
@@ -38,7 +37,8 @@ function Home() {
 }
 
 function Hero() {
-  const time = useLocalTime("Europe/Paris");
+  const studio = STUDIOS[0];
+  const time = useLocalTime(studio?.tz ?? "Europe/Athens");
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -52,25 +52,23 @@ function Hero() {
   return (
     <section className="relative isolate min-h-screen overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <FluidHero className="h-full w-full" />
+        <RoutingGrid className="h-full w-full" />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-background" />
 
       <div className="mx-auto flex min-h-screen max-w-[1600px] flex-col justify-between px-5 pb-10 pt-32 md:px-10 md:pt-40">
         <div className="flex items-start justify-between">
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-            <div>(Independent Studio)</div>
-            <div className="mt-1 text-foreground">EST · 2018</div>
+            <div className="mt-1 text-foreground">EST · 2026</div>
           </div>
           <div className="text-right font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-            <div>48.85°N · 2.35°E</div>
-            <div className="mt-1 text-primary">PAR — {time}</div>
+            <div className="mt-1 text-primary">ATH — {time}</div>
           </div>
         </div>
 
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-            ◐ Now booking · Q3 2026
+            ◐ Now booking
           </p>
           <h1
             ref={headingRef}
@@ -103,7 +101,7 @@ function Hero() {
 
         <div className="flex items-end justify-between font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
           <span>Scroll ↓</span>
-          <span>v1.0 · Realtime · Edge-rendered</span>
+          <span>v1.0 · Edge-rendered</span>
         </div>
       </div>
     </section>
@@ -111,7 +109,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const words = ["WebGL", "Three.js", "E-commerce", "Branding", "Motion", "UI/UX", "Realtime 3D", "Edge"];
+  const words = ["React", "Next.js", "Stripe", "PostgreSQL", "UI/UX", "Full-Stack", "E-commerce", "APIs"];
   const row = (
     <div className="flex shrink-0 items-center gap-12 px-6">
       {words.map((w) => (
@@ -140,21 +138,21 @@ function PhilosophyStrip() {
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-3">
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-            01 — Manifesto
+            01 — Philosophy
           </p>
         </div>
         <div className="md:col-span-9">
           <p className="font-display text-3xl font-medium leading-[1.15] tracking-tight md:text-5xl">
-            We treat every site as a piece of <em className="not-italic text-primary">interactive architecture</em> —
-            sculpted in realtime, lit by code, and tuned for <span className="text-silver">60 frames per second</span>.
-            No templates. No filler. No two projects that look the same.
+            I treat every project as <em className="not-italic text-primary">production-grade engineering</em> —
+            pixel-perfect interfaces, bulletproof backends, and infrastructure tuned for <span className="text-silver">peak performance</span>.
+            No templates. No shortcuts. Only craft.
           </p>
           <Link
             to="/about"
             data-cursor="magnetic"
             className="mt-10 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.28em] text-foreground hover:text-primary"
           >
-            Read Our Philosophy <span>→</span>
+            About Me <span>→</span>
           </Link>
         </div>
       </div>
@@ -163,18 +161,16 @@ function PhilosophyStrip() {
 }
 
 function FeaturedWork() {
-  const featured = PROJECTS.slice(0, 4);
-  void featured;
   return (
     <section className="relative pt-12">
       <div className="mx-auto max-w-[1600px] px-5 pb-12 md:px-10">
         <div className="flex items-end justify-between">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-              02 — Selected Work
+              02 — Featured Case Study
             </p>
             <h2 className="mt-4 font-display text-5xl font-semibold tracking-tight md:text-7xl">
-              Recent <span className="text-silver">obsessions.</span>
+              Built to <span className="text-silver">perform.</span>
             </h2>
           </div>
           <Link
@@ -182,7 +178,7 @@ function FeaturedWork() {
             data-cursor="magnetic"
             className="hidden font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground hover:text-primary md:inline"
           >
-            All Work →
+            View Case Study →
           </Link>
         </div>
       </div>
