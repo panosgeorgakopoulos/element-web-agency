@@ -88,7 +88,7 @@ export const SOCIALS = [
 export const AGENCY = {
   name: "Element Web",
   tagline: "High-performance web engineering.",
-  email: "hello@elementweb.io",
+  email: "panosgeorgakopoulos@icloud.com",
   description:
     "An elite, independent web engineering studio led by Panos Georgakopoulos, specializing in high-performance web apps and booking systems.",
 };
